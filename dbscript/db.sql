@@ -92,3 +92,5 @@ primary key(idComplaintcomment),
 foreign key(idComplaint) references tcomplaint(idComplaint) on delete cascade on update cascade,
 foreign key(idUser) references tuser(idUser) on delete cascade on update cascade
 ) engine=innodb;
+
+insert into toffice values('f884319e-123d-4fd1-8e80-fd26be9101ed', 'Dirección de escuela', now(), now());

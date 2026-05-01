@@ -1,10 +1,13 @@
 package com.epiis.apirfds220261.entity;
 
 import java.util.Date;
+import java.util.List;
 
+import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
+import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 import lombok.Getter;
 import lombok.Setter;
@@ -38,4 +41,7 @@ public class EntityUser {
 	
 	@Column(name = "updatedAt")
 	private Date updatedAt;
+	
+	@OneToMany(mappedBy = "parentUser", cascade = CascadeType.ALL)
+	private List<EntityComplaintComment> childComplaintComment;
 }

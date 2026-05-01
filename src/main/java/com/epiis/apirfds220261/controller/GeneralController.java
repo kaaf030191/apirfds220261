@@ -1,9 +1,8 @@
-package com.epiis.apirfds220261;
+package com.epiis.apirfds220261.controller;
 
 import java.util.HashMap;
 import java.util.Map;
 
-import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -19,7 +18,7 @@ public class GeneralController {
 		Map<String, String> data = new HashMap<>();
 		
 		data.put("welcome", "Hola mundo cruel!!!");
-
-		return new ResponseEntity<>(data, HttpStatus.OK);
+		
+		return ResponseEntity.ok(data);
 	}
 }
