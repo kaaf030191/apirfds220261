@@ -28,6 +28,20 @@
 	</scm>
 	<properties>
 		<java.version>25</java.version>
+		<sonar.projectKey>apirfds220261</sonar.projectKey>
+	    <sonar.projectName>Sistema de Denuncias y Sugerencias - Backend</sonar.projectName>
+	    
+	    <sonar.exclusions>
+	        **/entity/**,
+	        **/dto/**,
+	        **/config/**,
+	        **/exceptions/**,
+	        **/*Application.java
+	    </sonar.exclusions>
+	
+	    <sonar.coverage.jacoco.xmlReportPaths>
+	        ${project.build.directory}/site/jacoco/jacoco.xml
+	    </sonar.coverage.jacoco.xmlReportPaths>
 	</properties>
 	<dependencies>
 		<dependency>
@@ -65,12 +79,33 @@
 	</dependencies>
 
 	<build>
-		<plugins>
-			<plugin>
-				<groupId>org.springframework.boot</groupId>
-				<artifactId>spring-boot-maven-plugin</artifactId>
-			</plugin>
-		</plugins>
+	    <plugins>
+	        <plugin>
+	            <groupId>org.apache.maven.plugins</groupId>
+	            <artifactId>maven-compiler-plugin</artifactId>
+	            <configuration>
+	                <annotationProcessorPaths>
+	                    <path>
+	                        <groupId>org.projectlombok</groupId>
+	                        <artifactId>lombok</artifactId>
+	                        <version>${lombok.version}</version>
+	                    </path>
+	                </annotationProcessorPaths>
+	            </configuration>
+	        </plugin>
+	
+	        <plugin>
+	            <groupId>org.springframework.boot</groupId>
+	            <artifactId>spring-boot-maven-plugin</artifactId>
+	            <configuration>
+	                <excludes>
+	                    <exclude>
+	                        <groupId>org.projectlombok</groupId>
+	                        <artifactId>lombok</artifactId>
+	                    </exclude>
+	                </excludes>
+	            </configuration>
+	        </plugin>
+	    </plugins>
 	</build>
-
 </project>
