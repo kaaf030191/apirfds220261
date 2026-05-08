@@ -21,9 +21,8 @@ public class EntitySuggestionFile {
     @Column(name = "idSuggestionfile")
     private String idSuggestionfile;
 
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "idSuggestion")
-    private EntitySuggestion parentSuggestion;
+    @Column(name = "idSuggestion")
+    private String idSuggestion;
 
     @Column(name = "name")
     private String name;
@@ -36,4 +35,8 @@ public class EntitySuggestionFile {
 
     @Column(name = "updatedAt")
     private Date updatedAt;
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "idSuggestion", insertable = false, updatable = false)
+    private EntitySuggestion parentSuggestion;
 }

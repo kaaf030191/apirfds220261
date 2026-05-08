@@ -21,13 +21,11 @@ public class EntityComplaintComment {
     @Column(name = "idComplaintcomment")
     private String idComplaintcomment;
     
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "idComplaint")
-    private EntityComplaint parentComplaint;
-
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "idUser")
-    private EntityUser parentUser;
+    @Column(name = "idComplaint")
+    private String idComplaint;
+    
+    @Column(name = "idUser")
+    private String idUser;
 
     @Column(name = "description")
     private String description;
@@ -37,4 +35,12 @@ public class EntityComplaintComment {
 
     @Column(name = "updatedAt")
     private Date updatedAt;
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "idComplaint", insertable = false, updatable = false)
+    private EntityComplaint parentComplaint;
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "idUser", insertable = false, updatable = false)
+    private EntityUser parentUser;
 }

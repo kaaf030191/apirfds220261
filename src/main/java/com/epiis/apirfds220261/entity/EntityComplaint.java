@@ -23,14 +23,12 @@ public class EntityComplaint {
     @Id
     @Column(name = "idComplaint")
     private String idComplaint;
-
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "idOffice")
-    private EntityOffice parentOffice;
-
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "idProfessor")
-    private EntityProfessor parentProfessor;
+    
+    @Column(name = "idOffice")
+    private String idOffice;
+    
+    @Column(name = "idProfessor")
+    private String idProfessor;
 
     @Column(name = "code")
     private String code;
@@ -52,6 +50,14 @@ public class EntityComplaint {
 
     @Column(name = "updatedAt")
     private Date updatedAt;
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "idOffice", insertable = false, updatable = false)
+    private EntityOffice parentOffice;
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "idProfessor", insertable = false, updatable = false)
+    private EntityProfessor parentProfessor;
 
     @OneToMany(mappedBy = "parentComplaint", cascade = CascadeType.ALL)
     private List<EntityComplaintFile> childComplateFile;

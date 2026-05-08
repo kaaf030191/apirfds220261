@@ -3,6 +3,8 @@ package com.epiis.apirfds220261.helper;
 import java.security.SecureRandom;
 
 public class GenericHelper {
+	private GenericHelper() {}
+	
 	public static String followCodeGeneration() {
 	    String characters = "0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ";
 	    

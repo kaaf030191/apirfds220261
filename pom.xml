@@ -38,6 +38,8 @@
 	        **/exceptions/**,
 	        **/*Application.java
 	    </sonar.exclusions>
+	    
+	    <sonar.coverage.exclusions>**/*</sonar.coverage.exclusions>
 	
 	    <sonar.coverage.jacoco.xmlReportPaths>
 	        ${project.build.directory}/site/jacoco/jacoco.xml

@@ -5,9 +5,9 @@ import java.util.List;
 
 public abstract class ResponseGeneric {
 	private String type;
-	public List<String> listMessage;
+	public final List<String> listMessage;
 	
-	public ResponseGeneric() {
+	protected ResponseGeneric() {
 		this.type = "error";
 		this.listMessage = new ArrayList<>();
 	}

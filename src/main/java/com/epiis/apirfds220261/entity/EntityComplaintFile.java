@@ -20,10 +20,9 @@ public class EntityComplaintFile {
     @Id
     @Column(name = "idComplaintfile")
     private String idComplaintfile;
-
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "idComplaint")
-    private EntityComplaint parentComplaint;
+    
+    @Column(name = "idComplaint")
+    private String idComplaint;
 
     @Column(name = "name")
     private String name;
@@ -36,4 +35,8 @@ public class EntityComplaintFile {
 
     @Column(name = "updatedAt")
     private Date updatedAt;
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "idComplaint", insertable = false, updatable = false)
+    private EntityComplaint parentComplaint;
 }

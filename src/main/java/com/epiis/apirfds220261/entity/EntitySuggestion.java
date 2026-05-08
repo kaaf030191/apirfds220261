@@ -24,9 +24,8 @@ public class EntitySuggestion {
     @Column(name = "idSuggestion")
     private String idSuggestion;
 
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "idOffice")
-    private EntityOffice parentOffice;
+    @Column(name = "idOffice")
+    private String idOffice;
 
     @Column(name = "code")
     private String code;
@@ -45,6 +44,10 @@ public class EntitySuggestion {
 
     @Column(name = "updatedAt")
     private Date updatedAt;
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "idOffice", insertable = false, updatable = false)
+    private EntityOffice parentOffice;
 
     @OneToMany(mappedBy = "parentSuggestion", cascade = CascadeType.ALL)
     private List<EntitySuggestionFile> childSuggestionFile;
