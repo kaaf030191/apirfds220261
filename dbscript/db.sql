@@ -57,8 +57,9 @@ foreign key(idSuggestion) references tsuggestion(idSuggestion) on delete cascade
 create table tcomplaint(
 idComplaint char(36) not null,
 idOffice char(36) not null,
-idProfessor char(36) not null,
+idProfessor char(36) null,
 code char(7) not null,
+complaintFullName varchar(110) not null,
 personFullName varchar(110) not null,
 description text not null,
 issueDate datetime null,
@@ -92,5 +93,3 @@ primary key(idComplaintcomment),
 foreign key(idComplaint) references tcomplaint(idComplaint) on delete cascade on update cascade,
 foreign key(idUser) references tuser(idUser) on delete cascade on update cascade
 ) engine=innodb;
-
-insert into toffice values('f884319e-123d-4fd1-8e80-fd26be9101ed', 'Dirección de escuela', now(), now());
