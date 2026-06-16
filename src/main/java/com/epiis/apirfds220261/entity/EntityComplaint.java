@@ -35,6 +35,9 @@ public class EntityComplaint {
 
     @Column(name = "personFullName")
     private String personFullName;
+    
+    @Column(name = "complaintFullName")
+    private String complaintFullName;
 
     @Column(name = "description")
     private String description;

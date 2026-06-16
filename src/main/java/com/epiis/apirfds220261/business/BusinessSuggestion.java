@@ -41,8 +41,8 @@ public class BusinessSuggestion {
 		entitySuggestion.setIdSuggestion(UUID.randomUUID().toString());
 		entitySuggestion.setIdOffice(request.getIdOffice());
 		entitySuggestion.setCode(GenericHelper.followCodeGeneration());
-		entitySuggestion.setPersonFullName(request.getPersonFullName());
-		entitySuggestion.setDescription(request.getDescription());
+		entitySuggestion.setPersonFullName(request.getPersonFullName().trim());
+		entitySuggestion.setDescription(request.getDescription().trim());
 		entitySuggestion.setStatus(EnumProcess.PENDING.toString());
 		entitySuggestion.setCreatedAt(new java.sql.Date(new Date().getTime()));
 		entitySuggestion.setUpdatedAt(entitySuggestion.getCreatedAt());
