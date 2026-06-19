@@ -3,13 +3,16 @@ package com.epiis.apirfds220261.controller;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.BindingResult;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.epiis.apirfds220261.business.BusinessSuggestion;
 import com.epiis.apirfds220261.dto.request.RequestSuggestionInsert;
+import com.epiis.apirfds220261.dto.response.ResponseSuggestionGetByCode;
 import com.epiis.apirfds220261.dto.response.ResponseSuggestionInsert;
 
 import jakarta.validation.Valid;
@@ -46,5 +49,10 @@ public class SuggestionController {
 		} catch(Exception _) {
 			return null;
 		}
+	}
+	
+	@GetMapping(path = "getbycode/{code}")
+	public ResponseEntity<ResponseSuggestionGetByCode> actionGetByCode(@PathVariable String code) {
+		return ResponseEntity.ok(businessSuggestion.getByCode(code));
 	}
 }

@@ -12,6 +12,7 @@ import java.util.UUID;
 import org.springframework.stereotype.Service;
 
 import com.epiis.apirfds220261.dto.request.RequestSuggestionInsert;
+import com.epiis.apirfds220261.dto.response.ResponseSuggestionGetByCode;
 import com.epiis.apirfds220261.dto.response.ResponseSuggestionInsert;
 import com.epiis.apirfds220261.entity.EntitySuggestion;
 import com.epiis.apirfds220261.entity.EntitySuggestionFile;
@@ -78,6 +79,20 @@ public class BusinessSuggestion {
 		
 		response.success();
 		response.listMessage.add("Registro realizado correctamente.");
+		
+		return response;
+	}
+	
+	public ResponseSuggestionGetByCode getByCode(String code) {
+		ResponseSuggestionGetByCode response = new ResponseSuggestionGetByCode();
+		
+		EntitySuggestion entitySuggestion = repositorySuggestion.findByCode(code);
+		
+		if(entitySuggestion != null) {
+			response.setStatus(entitySuggestion.getStatus());
+		}
+		
+		response.success();
 		
 		return response;
 	}

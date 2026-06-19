@@ -6,4 +6,6 @@ import org.springframework.stereotype.Repository;
 import com.epiis.apirfds220261.entity.EntitySuggestion;
 
 @Repository
-public interface RepositorySuggestion extends JpaRepository<EntitySuggestion, String> {}
+public interface RepositorySuggestion extends JpaRepository<EntitySuggestion, String> {
+	EntitySuggestion findByCode(String code);
+}
